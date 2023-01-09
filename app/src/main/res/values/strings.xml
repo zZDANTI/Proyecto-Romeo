@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Hotel Romeo</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    //OBJETOS DE HOME
+    <string name="reservaTexto">TU RESERVA</string>
+    <string name="reservaCliente">No tienes ninguna reserva</string>
+    <string name="horarioApertura">HORARIO DE APERTURA</string>
+
+    //oBJETOS DE ATENCION AL CLIENTE
+    <string name="llamadas">Llamanos , le atenderemos</string>
+    <string name="numeHotel">682924866</string>
+    <string name="horarioHotel">9:00h - 21:00h</string>
+    <string name="contactoCorreo">CONTACdddTA POR CORREO</string>
+
+</resources>

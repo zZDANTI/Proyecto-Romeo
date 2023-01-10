@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.atencion.AtencionFragment">
 
     <ImageView
         android:id="@+id/cuadroAtecion"
@@ -57,14 +57,13 @@
         app:layout_constraintStart_toStartOf="@+id/cuadroAtecion" />
 
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="316dp"
         android:layout_height="27dp"
-        android:textSize="12dp"
         android:gravity="center"
         android:text="@string/contactoCorreo"
+        android:textSize="12dp"
         app:layout_constraintBottom_toTopOf="@+id/listadohome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -85,6 +84,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cuadroAtecion" />
 
+    <EditText
+        android:id="@+id/asuntoCorreo"
+        android:layout_width="263dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/asuntoCorreo"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/mensajeCorreo"
+        app:layout_constraintEnd_toEndOf="@+id/listadohome"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/listadohome"
+        app:layout_constraintTop_toTopOf="@+id/listadohome"
+        app:layout_constraintVertical_bias="0.437" />
+
+    <EditText
+        android:id="@+id/mensajeCorreo"
+        android:layout_width="263dp"
+        android:layout_height="162dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="@string/mensajeCorreo"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/listadohome"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="@+id/listadohome" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="enivarCorreo"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/listadohome"
+        app:layout_constraintEnd_toEndOf="@+id/listadohome"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/listadohome" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

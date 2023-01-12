@@ -9,16 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
+
 
 import com.example.myapplication.R;
-import com.example.myapplication.basedatos.ClienteData;
-import com.example.myapplication.basedatos.Usuario;
-import com.example.myapplication.basedatos.ClientesDao;
-import com.example.myapplication.databinding.FragmentReservasBinding;
-import com.example.myapplication.ui.notifications.NotificationsViewModel;
 
-import java.util.List;
+import com.example.myapplication.databinding.FragmentReservasBinding;
+
+
 
 public class ReservasFragment extends Fragment {
 

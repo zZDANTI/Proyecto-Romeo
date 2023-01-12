@@ -3,12 +3,7 @@ package com.example.myapplication.ui.reservas;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.room.Database;
-import androidx.room.Room;
 
-import com.example.myapplication.basedatos.Usuario;
-
-import java.util.List;
 
 public class ReservasViewModel extends ViewModel {
 
@@ -30,8 +25,7 @@ public class ReservasViewModel extends ViewModel {
     }
     public void usuarios(){
 
-        List<Usuario> listaUsuario;
-        Database database = Room.databaseBuilder(gey)
+
 
 
     }

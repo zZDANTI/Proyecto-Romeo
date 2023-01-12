@@ -2,21 +2,26 @@ package com.example.myapplication.basedatos;
 
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "usuario")
-public class Usuario {
+
+@Entity(tableName = "cliente")
+public class Cliente {
 
     @NonNull
     @PrimaryKey
+    @ColumnInfo(name ="id")
     public String id;
 
+
+    @ColumnInfo(name ="Nombre")
     public String nombre;
 
 
-    public Usuario(@NonNull String id, String nombre) {
+    public Cliente(@NonNull String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }

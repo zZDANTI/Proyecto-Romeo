@@ -1,17 +1,14 @@
-package com.example.myapplication.ui.cliente;
+package com.example.myapplication.ventanas.cliente;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.example.myapplication.basedatos.Cliente;
+import com.example.myapplication.entity.Cliente;
 import com.example.myapplication.repositorios.ClientesRepositorio;
 
-import java.io.Closeable;
 import java.util.List;
 
 public class ClienteViewModel extends AndroidViewModel {
@@ -26,8 +23,11 @@ public class ClienteViewModel extends AndroidViewModel {
         clientesRepositorio = new ClientesRepositorio(application);
         listadoCliente = clientesRepositorio.getListadoCliente();
     }
-    public LiveData<List<Cliente>> getOcioListado(){
+    public LiveData<List<Cliente>> getListadoCliente(){
         return listadoCliente;
+    }
+    public LiveData<Cliente> getOneCliente(String mId){
+        return clientesRepositorio.getOneCliente(mId);
     }
     public  void insert(Cliente objetoCliente){
         clientesRepositorio.insert(objetoCliente);

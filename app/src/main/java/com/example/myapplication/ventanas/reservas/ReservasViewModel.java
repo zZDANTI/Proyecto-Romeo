@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.reservas;
+package com.example.myapplication.ventanas.reservas;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

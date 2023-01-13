@@ -1,4 +1,4 @@
-package com.example.myapplication.basedatos;
+package com.example.myapplication.data;
 
 import android.content.Context;
 
@@ -7,6 +7,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+
+import com.example.myapplication.daos.ClientesDao;
+import com.example.myapplication.entity.Cliente;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -44,6 +48,9 @@ public abstract class BaseDatos extends RoomDatabase {
         return INSTANCE;
     }
 
+    /*
+
+
     private static final RoomDatabase.Callback mRoomCallback = new Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -60,4 +67,6 @@ public abstract class BaseDatos extends RoomDatabase {
             });
         }
     };
+
+     */
 }

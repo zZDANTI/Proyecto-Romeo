@@ -1,13 +1,11 @@
-package com.example.myapplication.basedatos;
-
-
-
+package com.example.myapplication.daos;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import com.example.myapplication.entity.Cliente;
 
 import java.util.List;
 
@@ -20,7 +18,7 @@ public interface ClientesDao {
     LiveData<List<Cliente>> obtenerClientes();
 
     @Query("SELECT * FROM cliente WHERE id = :id")
-    Cliente obtenerCliente(String id);
+    LiveData<Cliente> obtenerCliente(String id);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Cliente cliente);

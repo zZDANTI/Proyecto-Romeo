@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.reservas;
+package com.example.myapplication.ventanas.reservas;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.myapplication.R;
-
 import com.example.myapplication.databinding.FragmentReservasBinding;
-
 
 
 public class ReservasFragment extends Fragment {

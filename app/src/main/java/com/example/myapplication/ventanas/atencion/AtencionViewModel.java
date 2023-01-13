@@ -1,19 +1,23 @@
-package com.example.myapplication.ui.home;
+package com.example.myapplication.ventanas.atencion;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class AtencionViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
+    
 
-    public HomeViewModel() {
+    public AtencionViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+
     }
 
     public LiveData<String> getText() {
         return mText;
     }
+
 }
+
+

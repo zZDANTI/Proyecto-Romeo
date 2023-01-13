@@ -8,24 +8,24 @@
 
     <fragment
         android:id="@+id/navigation_reservas"
-        android:name="com.example.myapplication.ui.reservas.ReservasFragment"
+        android:name="com.example.myapplication.ventanas.reservas.ReservasFragment"
         android:label="@string/title_reservas"
         tools:layout="@layout/fragment_reservas" />
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:name="com.example.myapplication.ventanas.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.myapplication.ui.atencion.AtencionFragment"
+        android:name="com.example.myapplication.ventanas.atencion.AtencionFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_atencion" />
 
     <fragment
         android:id="@+id/navigation_cliente"
-        android:name="com.example.myapplication.ui.cliente.ClienteFragment"
+        android:name="com.example.myapplication.ventanas.cliente.ClienteFragment"
         android:label="@string/title_cliente"
         tools:layout="@layout/fragment_cliente" />
 </navigation>

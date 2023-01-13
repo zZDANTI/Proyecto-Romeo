@@ -1,14 +1,9 @@
 package com.example.myapplication.repositorios;
-
-import static android.os.AsyncTask.execute;
-
 import android.content.Context;
-
 import androidx.lifecycle.LiveData;
-
-import com.example.myapplication.basedatos.BaseDatos;
-import com.example.myapplication.basedatos.Cliente;
-import com.example.myapplication.basedatos.ClientesDao;
+import com.example.myapplication.daos.ClientesDao;
+import com.example.myapplication.data.BaseDatos;
+import com.example.myapplication.entity.Cliente;
 
 import java.util.List;
 
@@ -29,6 +24,10 @@ public class ClientesRepositorio {
     //GETTERS
     public LiveData<List<Cliente>> getListadoCliente() {
         return listadoCliente;
+    }
+
+    public LiveData<Cliente> getOneCliente(String mId) {
+        return clientesDao.obtenerCliente(mId);
     }
 
     public void insert(Cliente objetoCliente){

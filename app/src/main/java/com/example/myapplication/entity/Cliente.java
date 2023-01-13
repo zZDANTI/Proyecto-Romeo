@@ -1,4 +1,4 @@
-package com.example.myapplication.basedatos;
+package com.example.myapplication.entity;
 
 
 import androidx.annotation.NonNull;
@@ -6,10 +6,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 
 
 @Entity(tableName = "cliente")
-public class Cliente {
+public class Cliente implements Serializable {
 
     @NonNull
     @PrimaryKey

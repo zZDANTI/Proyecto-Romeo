@@ -16,23 +16,23 @@ import java.util.List;
 
 public class ClienteViewModel extends AndroidViewModel {
 
-    /*
+
 
     public final ClientesRepositorio clientesRepositorio;
     public final LiveData<List<Cliente>> listadoCliente;
 
     public ClienteViewModel(@NonNull Application application) {
         super(application);
-        ClientesRepositorio = new ClientesRepositorio(application);
-        listadoCliente = ger();
+        clientesRepositorio = new ClientesRepositorio(application);
+        listadoCliente = clientesRepositorio.getListadoCliente();
     }
-    public LiveData<List<Ocio>> getOcioListado(){
-        return ocioListado;
+    public LiveData<List<Cliente>> getOcioListado(){
+        return listadoCliente;
     }
-    public  void insert(Ocio objetoOcio){
-        ocioRepository.insert(objetoOcio);
+    public  void insert(Cliente objetoCliente){
+        clientesRepositorio.insert(objetoCliente);
     }
 
-     */
+
 }
 

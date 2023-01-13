@@ -2,9 +2,11 @@ package com.example.myapplication.basedatos;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -25,8 +27,7 @@ public abstract class BaseDatos extends RoomDatabase {
     private static final int THREADS = 4;
 
     // Declaramos un ExecutorService para ejecutar operaciones de bases de datos en otros hilos de trabajo
-    static final ExecutorService dbExecutor =
-            Executors.newFixedThreadPool(THREADS);
+    public static final ExecutorService dbExecutor = Executors.newFixedThreadPool(THREADS);
 
     //Patrón SINGLETON
     public static BaseDatos getInstance(final Context context){
@@ -42,4 +43,21 @@ public abstract class BaseDatos extends RoomDatabase {
         }
         return INSTANCE;
     }
+
+    private static final RoomDatabase.Callback mRoomCallback = new Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+
+            dbExecutor.execute(() -> {
+                ClientesDao dao = INSTANCE.clientesDao();
+
+                Cliente list1 = new Cliente("1", "Manuel");
+                Cliente list2 = new Cliente("2", "Jorge");
+
+                dao.insert(list1);
+                dao.insert(list2);
+            });
+        }
+    };
 }

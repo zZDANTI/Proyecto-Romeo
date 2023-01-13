@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/navigation_reservas"
         android:name="com.example.myapplication.ui.reservas.ReservasFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_reservas"
         tools:layout="@layout/fragment_reservas" />
     <fragment
         android:id="@+id/navigation_home"
@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_atencion" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_cliente"
         android:name="com.example.myapplication.ui.cliente.ClienteFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_cliente"
         tools:layout="@layout/fragment_cliente" />
 </navigation>

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
@@ -21,8 +22,14 @@ public interface ClientesDao {
     @Query("SELECT * FROM cliente WHERE id = :id")
     Cliente obtenerCliente(String id);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insert(Cliente cliente);
+
+    /*
     @Insert
-    void insert (Cliente...Cliente);
+    void insert(Cliente cliente);
+
+     */
 
     @Query("UPDATE cliente Set nombre = :nombre where  nombre = :user")
     void actualizarUsuario(String user, String nombre);

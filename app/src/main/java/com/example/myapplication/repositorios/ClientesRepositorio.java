@@ -1,5 +1,7 @@
 package com.example.myapplication.repositorios;
 
+import static android.os.AsyncTask.execute;
+
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
@@ -29,7 +31,9 @@ public class ClientesRepositorio {
         return listadoCliente;
     }
 
-    public ClientesDao getClientesDao() {
-        return clientesDao;
+    public void insert(Cliente objetoCliente){
+        BaseDatos.dbExecutor.execute(
+                ()-> clientesDao.insert(objetoCliente)
+        );
     }
 }

@@ -1,9 +1,9 @@
-package com.example.myapplication.repositorios;
+package com.example.myapplication.Repositorios;
 import android.content.Context;
 import androidx.lifecycle.LiveData;
-import com.example.myapplication.daos.ClientesDao;
+import com.example.myapplication.Daos.ClientesDao;
 import com.example.myapplication.BaseDatos.BaseDatos;
-import com.example.myapplication.entity.Cliente;
+import com.example.myapplication.Entity.Cliente;
 
 import java.util.List;
 

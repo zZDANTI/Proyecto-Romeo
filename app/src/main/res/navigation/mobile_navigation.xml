@@ -28,4 +28,16 @@
         android:name="com.example.myapplication.ventanas.cliente.ClienteFragment"
         android:label="@string/title_cliente"
         tools:layout="@layout/fragment_cliente" />
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.example.myapplication.ventanas.login.LoginFragment"
+        android:label="login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.example.myapplication.ventanas.register.RegisterFragment"
+        android:label="login"
+        tools:layout="@layout/fragment_register" />
 </navigation>

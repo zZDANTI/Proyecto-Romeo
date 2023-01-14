@@ -7,8 +7,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-import com.example.myapplication.daos.ClientesDao;
-import com.example.myapplication.entity.Cliente;
+import com.example.myapplication.Daos.ClientesDao;
+import com.example.myapplication.Entity.Cliente;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -8,11 +8,18 @@
 
     //Objetos Login
     <string name="login">Login</string>
-    <string name="register">Register</string>
+    <string name="register">Registrarse</string>
     <string name="password">Contraseña</string>
     <string name="noCuenta">¿No tienes cuenta? Registrate</string>
     <string name="email">Email</string>
+    <string name="salir">Salir</string>
 
+    //Objetos Register
+
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="fechaNacimiento">Fecha de nacimiento</string>
+    <string name="telefono">Telefono</string>
 
     //OBJETOS DE HOME
     <string name="reservaTexto">TU RESERVA</string>

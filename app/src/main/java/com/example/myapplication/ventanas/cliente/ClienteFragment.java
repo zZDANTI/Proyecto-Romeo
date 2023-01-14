@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.databinding.FragmentClienteBinding;
-import com.example.myapplication.entity.Cliente;
+import com.example.myapplication.Entity.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +35,9 @@ public class ClienteFragment extends Fragment {
         clienteViewModel=new ViewModelProvider(this).get(ClienteViewModel.class);
 
 
-
         //listado.add(new Cliente("s","w"));
 
         try {
-
-
-
 
             binding.botonInsertar.setOnClickListener(new View.OnClickListener() {
                 @Override

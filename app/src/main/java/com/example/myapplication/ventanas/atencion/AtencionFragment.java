@@ -11,9 +11,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.databinding.FragmentAtencionBinding;
+import com.example.myapplication.ventanas.login.LoginFragment;
+import com.example.myapplication.ventanas.register.RegisterFragment;
 
 
 public class AtencionFragment extends Fragment {
+
+
 
     private FragmentAtencionBinding binding;
 
@@ -26,6 +30,8 @@ public class AtencionFragment extends Fragment {
 
         binding = FragmentAtencionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
 
         final TextView textView = binding.mensajeCorreo;
         atencionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

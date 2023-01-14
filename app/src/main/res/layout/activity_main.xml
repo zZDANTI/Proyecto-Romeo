@@ -34,12 +34,24 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="107dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/salir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <FrameLayout
         android:id="@+id/inicioAPP"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="31dp"></FrameLayout>
+        tools:layout_editor_absoluteY="31dp">
 
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.myapplication.entity.Cliente;
-import com.example.myapplication.repositorios.ClientesRepositorio;
+import com.example.myapplication.Entity.Cliente;
+import com.example.myapplication.Repositorios.ClientesRepositorio;
 
 import java.util.List;
 

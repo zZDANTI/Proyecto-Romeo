@@ -1,13 +1,14 @@
-package com.example.myapplication.daos;
+package com.example.myapplication.Daos;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import com.example.myapplication.entity.Cliente;
+import com.example.myapplication.Entity.Cliente;
 
 import java.util.List;
+import java.util.Set;
 
 @Dao
 public interface ClientesDao {
@@ -23,11 +24,8 @@ public interface ClientesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Cliente cliente);
 
-    /*
-    @Insert
-    void insert(Cliente cliente);
 
-     */
+
 
     @Query("UPDATE cliente Set nombre = :nombre where  nombre = :user")
     void actualizarUsuario(String user, String nombre);

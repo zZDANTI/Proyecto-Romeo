@@ -15,6 +15,7 @@ public class ClienteViewModel extends AndroidViewModel {
 
 
 
+    //po
     public final ClientesRepositorio clientesRepositorio;
     public final LiveData<List<Cliente>> listadoCliente;
 

@@ -22,6 +22,7 @@ public class Cliente implements Serializable {
     public String nombre;
 
 
+
     public Cliente(@NonNull String id, String nombre) {
         this.id = id;
         this.nombre = nombre;

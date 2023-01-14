@@ -6,17 +6,27 @@
     <string name="title_reservas">Reservas</string>
 
 
+    //Objetos Login
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="password">Contraseña</string>
+    <string name="noCuenta">¿No tienes cuenta? Registrate</string>
+    <string name="email">Email</string>
+
+
     //OBJETOS DE HOME
     <string name="reservaTexto">TU RESERVA</string>
     <string name="reservaCliente">No tienes ninguna reserva</string>
     <string name="horarioApertura">HORARIO DE APERTURA</string>
 
-    //oBJETOS DE ATENCION AL CLIENTE
+    //OBJETOS DE ATENCION AL CLIENTE
     <string name="llamadas">Llamanos , le atenderemos</string>
     <string name="numeHotel">682924866</string>
     <string name="horarioHotel">9:00h - 21:00h</string>
     <string name="contactoCorreo">CONTACTA POR CORREO</string>
     <string name="asuntoCorreo">Asunto</string>
     <string name="mensajeCorreo">Mensaje</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

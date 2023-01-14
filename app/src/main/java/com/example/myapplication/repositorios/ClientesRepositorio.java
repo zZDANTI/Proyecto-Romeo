@@ -2,7 +2,7 @@ package com.example.myapplication.repositorios;
 import android.content.Context;
 import androidx.lifecycle.LiveData;
 import com.example.myapplication.daos.ClientesDao;
-import com.example.myapplication.data.BaseDatos;
+import com.example.myapplication.BaseDatos.BaseDatos;
 import com.example.myapplication.entity.Cliente;
 
 import java.util.List;

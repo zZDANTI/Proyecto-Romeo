@@ -8,22 +8,26 @@ import androidx.room.Query;
 import com.example.myapplication.Entity.Cliente;
 
 import java.util.List;
-import java.util.Set;
 
 @Dao
 public interface ClientesDao {
 
 // Todas las consultas para poder coger datos de la base de datos
 
-    @Query("SELECT * FROM cliente")
+    @Query("SELECT * FROM cliente where password")
     LiveData<List<Cliente>> obtenerClientes();
 
-    @Query("SELECT * FROM cliente WHERE id = :id")
-    LiveData<Cliente> obtenerCliente(String id);
+    @Query("SELECT * FROM cliente WHERE email = :email")
+    LiveData<Cliente> obtenerCliente(String email);
 
+
+    //OBTIENE EMAIL Y CONTRASEÑA
+    @Query("SELECT * FROM cliente WHERE email = (:email) and password = (:contrasenya)")
+    Cliente validacionLogin(String email, String contrasenya);
+
+    //REGISTRO DE UN CLIENTE
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Cliente cliente);
-
+    void insertarCliente(Cliente cliente);
 
 
 

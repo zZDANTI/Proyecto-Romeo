@@ -1,5 +1,6 @@
 package com.example.myapplication.ventanas.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,33 +10,81 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.myapplication.BaseDatos.BaseDatos;
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.Menu;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.databinding.FragmentLoginBinding;
+import com.example.myapplication.ventanas.cliente.ClienteViewModel;
 import com.example.myapplication.ventanas.register.RegisterFragment;
 
+
 public class LoginFragment extends Fragment {
-
-    Button botonRegister;
+    String comprobarContrasenya, comprobarEmail;
     private FragmentLoginBinding binding;
-
-    Fragment login,register;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        LoginViewModel loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
 
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        try {
+            binding.loginInicio.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String email="";
+                    String contrasenya="";
+
+
+                    if(!(binding.emailLogin.getText().toString().isEmpty()|| binding.contrasenyaLogin.getText().toString().isEmpty())){
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                loginViewModel.nombreYcontrasenya(binding.emailLogin.getText().toString()
+                                        ,binding.contrasenyaLogin.getText().toString());
+                                
+
+                                if (loginViewModel.nombreYcontrasenya){
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(getContext(),"Usuario no encontrado", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }else{
+                                     startActivity(new Intent(getActivity(),Menu.class));
+                                }
+                            }
+                        }).start();
 
 
 
-        return view ;
+                    }else{
+                        Toast.makeText(getContext(),"La contraseña o el email es incorrecto", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+        }catch (NullPointerException e){
+            e.getMessage();
+        }
+
+
+
+
+        return binding.getRoot();
     }
 
 

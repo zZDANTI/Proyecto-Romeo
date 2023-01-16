@@ -30,8 +30,9 @@ public class ClienteViewModel extends AndroidViewModel {
     public LiveData<Cliente> getOneCliente(String mId){
         return clientesRepositorio.getOneCliente(mId);
     }
+
     public  void insert(Cliente objetoCliente){
-        clientesRepositorio.insert(objetoCliente);
+        clientesRepositorio.insertarCliente(objetoCliente);
     }
 
 

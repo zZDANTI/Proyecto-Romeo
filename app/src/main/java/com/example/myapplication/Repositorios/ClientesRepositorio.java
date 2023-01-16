@@ -30,9 +30,17 @@ public class ClientesRepositorio {
         return clientesDao.obtenerCliente(mId);
     }
 
-    public void insert(Cliente objetoCliente){
+    //LOGIN CLIENTE
+    public Cliente validarLogin(String email, String contrasenya) {
+        return clientesDao.validacionLogin(email,contrasenya);
+    }
+
+    //Inserta un cliente a la base de datos
+    public void insertarCliente(Cliente cliente){
         BaseDatos.dbExecutor.execute(
-                ()-> clientesDao.insert(objetoCliente)
+                ()-> clientesDao.insertarCliente(cliente)
         );
     }
+
+
 }

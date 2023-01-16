@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/loginInicio"
         android:layout_width="199dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
@@ -32,14 +32,14 @@
         android:layout_height="391dp"
         android:layout_marginTop="16dp"
         android:background="#ADFFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintBottom_toTopOf="@+id/loginInicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.424" />
 
     <EditText
-        android:id="@+id/contrasenya"
+        android:id="@+id/contrasenyaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -51,12 +51,12 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin"
         app:layout_constraintVertical_bias="0.0"
         android:textColorHint="@color/black"/>
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailLogin"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
         android:layout_height="179dp"
         android:layout_marginBottom="28dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@+id/emailLogin"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.395"
         app:layout_constraintStart_toStartOf="@+id/view"

@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/inicioLogin"
         android:layout_width="199dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"

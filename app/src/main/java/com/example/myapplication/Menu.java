@@ -29,7 +29,6 @@ public class Menu extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
 
-
     }
 
 

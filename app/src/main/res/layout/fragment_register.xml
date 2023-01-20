@@ -17,23 +17,24 @@
         android:id="@+id/botonRegistrarse"
         android:layout_width="199dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="28dp"
         android:backgroundTint="#FF0008"
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.045" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="277dp"
-        android:layout_height="469dp"
+        android:layout_width="270dp"
+        android:layout_height="436dp"
+        android:layout_marginTop="16dp"
         android:background="#ADFFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/botonRegistrarse"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/contrasenyaRegistro"
@@ -102,6 +103,29 @@
         app:layout_constraintBottom_toTopOf="@+id/emailRegistro"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view" />
+
+    <Button
+        android:id="@+id/loginRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:text="@string/loginEnRegister"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/botonRegistrarse"
+        app:layout_constraintVertical_bias="0.255" />
+
+
+    <FrameLayout
+        android:id="@+id/registerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-52dp">
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

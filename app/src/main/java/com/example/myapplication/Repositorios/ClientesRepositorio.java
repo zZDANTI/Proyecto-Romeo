@@ -31,8 +31,8 @@ public class ClientesRepositorio {
     }
 
     //LOGIN CLIENTE
-    public Cliente validarLogin(String email, String contrasenya) {
-        return clientesDao.validacionLogin(email,contrasenya);
+    public LiveData<Cliente> validarLogin(String email) {
+        return clientesDao.validacionLogin(email);
     }
 
     //Inserta un cliente a la base de datos

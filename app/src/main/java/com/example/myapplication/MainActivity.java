@@ -28,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         botonLogin = findViewById(R.id.inicioLogin);
-        botonRegister = findViewById(R.id.register);
+        botonRegister = findViewById(R.id.registerBoton);
         salir = findViewById(R.id.exit);
         register = new RegisterFragment();
         login = new LoginFragment();
         salir.setVisibility(View.GONE);
+
+
+        // Te lleva al login
 
         botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 salir.setVisibility(View.VISIBLE);
             }
         });
+
+
+
+        //Te lleva al registro
         botonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 botonRegister.setVisibility(View.GONE);
             }
         });
+
+        // Te lleva al inicio del login
 
         salir.setOnClickListener(new View.OnClickListener() {
             @Override

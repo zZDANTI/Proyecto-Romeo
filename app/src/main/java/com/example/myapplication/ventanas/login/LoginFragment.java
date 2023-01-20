@@ -42,30 +42,41 @@ public class LoginFragment extends Fragment {
             binding.loginInicio.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String email="";
-                    String contrasenya="";
-
 
                     if(!(binding.emailLogin.getText().toString().isEmpty()|| binding.contrasenyaLogin.getText().toString().isEmpty())){
 
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
 
-                                loginViewModel.nombreYcontrasenya(binding.emailLogin.getText().toString()
-                                        ,binding.contrasenyaLogin.getText().toString());
+                                        loginViewModel.nombreYcontrasenya(binding.emailLogin.getText().toString()).observe(getActivity(),ec->{
+
+                                            if (ec==null){
+
+                                                Toast.makeText(getContext(),"Usuario no encontrado", Toast.LENGTH_SHORT).show();
+                                            }else {
+                                                if (ec.getPassword().equals(binding.contrasenyaLogin.getText().toString())) {
+                                                    startActivity(new Intent(getActivity(), Menu.class));
+                                                    getActivity().onBackPressed();
+
+
+                                                } else {
+                                                    Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                                }
+
+                                            }
+
+                                        });
+                                    }
+                                });
+
+
                                 
 
-                                if (loginViewModel.nombreYcontrasenya){
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Toast.makeText(getContext(),"Usuario no encontrado", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                }else{
-                                     startActivity(new Intent(getActivity(),Menu.class));
-                                }
+
                             }
                         }).start();
 

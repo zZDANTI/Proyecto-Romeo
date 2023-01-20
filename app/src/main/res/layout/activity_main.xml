@@ -15,14 +15,14 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#FF0008"
         android:text="@string/login"
-        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/registerBoton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/registerBoton"
         android:layout_width="306dp"
         android:layout_height="41dp"
         android:layout_marginBottom="68dp"
@@ -36,14 +36,13 @@
 
     <Button
         android:id="@+id/exit"
-        android:layout_width="107dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/salir"
+        android:layout_width="173dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="76dp"
+        android:background="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <FrameLayout
         android:id="@+id/inicioAPP"
@@ -53,5 +52,6 @@
         tools:layout_editor_absoluteY="31dp">
 
     </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

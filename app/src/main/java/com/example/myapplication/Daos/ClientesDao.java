@@ -22,8 +22,8 @@ public interface ClientesDao {
 
 
     //OBTIENE EMAIL Y CONTRASEÑA
-    @Query("SELECT * FROM cliente WHERE email = (:email) and password = (:contrasenya)")
-    Cliente validacionLogin(String email, String contrasenya);
+    @Query("SELECT * FROM cliente WHERE email = (:email)")
+    LiveData<Cliente> validacionLogin(String email);
 
     //REGISTRO DE UN CLIENTE
     @Insert(onConflict = OnConflictStrategy.IGNORE)

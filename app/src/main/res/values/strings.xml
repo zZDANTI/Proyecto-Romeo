@@ -20,6 +20,8 @@
     <string name="apellidos">Apellidos</string>
     <string name="fechaNacimiento">Fecha de nacimiento</string>
     <string name="telefono">Telefono</string>
+    <string name="loginEnRegister">Iniciar Sesion Aqui</string>
+
 
     //OBJETOS DE HOME
     <string name="reservaTexto">TU RESERVA</string>

@@ -23,6 +23,12 @@ public class RegisterViewModel extends AndroidViewModel {
         listadoCliente = clientesRepositorio.getListadoCliente();
     }
 
+    //METODOS
+
+    //Valida si un usuario esta registrado para que no vuelva a registrarse
+    public LiveData<Cliente> validarUsuario(String email){
+        return clientesRepositorio.validarUsuario(email);
+    }
 
     //Inserta un cliente a la base de datos
     public  void insertarCliente(Cliente cliente){

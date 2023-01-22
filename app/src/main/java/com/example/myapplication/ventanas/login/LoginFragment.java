@@ -52,7 +52,7 @@ public class LoginFragment extends Fragment {
                                     @Override
                                     public void run() {
 
-                                        loginViewModel.nombreYcontrasenya(binding.emailLogin.getText().toString()).observe(getActivity(),ec->{
+                                        loginViewModel.validarUsuario(binding.emailLogin.getText().toString()).observe(getActivity(),ec->{
 
                                             if (ec==null){
 

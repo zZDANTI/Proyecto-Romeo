@@ -22,8 +22,9 @@ public class LoginViewModel extends AndroidViewModel {
         listadoCliente = clientesRepositorio.getListadoCliente();
     }
 
-    public LiveData<Cliente> nombreYcontrasenya(String email){
-        return clientesRepositorio.validarLogin(email);
+    //Valida si un usuario esta registrado para poder loguearse
+    public LiveData<Cliente> validarUsuario(String email){
+        return clientesRepositorio.validarUsuario(email);
     }
 
 

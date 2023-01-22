@@ -30,9 +30,17 @@ public class ClientesRepositorio {
         return clientesDao.obtenerCliente(mId);
     }
 
-    //LOGIN CLIENTE
-    public LiveData<Cliente> validarLogin(String email) {
-        return clientesDao.validacionLogin(email);
+    //Metodos
+
+    //Comprueba si el cliente esta registrado
+
+
+
+
+
+    //Valida un cliente para poder iniciar sesion en login o comprueba si esta registrado
+    public LiveData<Cliente> validarUsuario(String email) {
+        return clientesDao.validarUsuario(email);
     }
 
     //Inserta un cliente a la base de datos

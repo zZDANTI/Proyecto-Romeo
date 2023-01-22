@@ -23,13 +23,11 @@ public interface ClientesDao {
 
     //OBTIENE EMAIL Y CONTRASEÑA
     @Query("SELECT * FROM cliente WHERE email = (:email)")
-    LiveData<Cliente> validacionLogin(String email);
+    LiveData<Cliente> validarUsuario(String email);
 
     //REGISTRO DE UN CLIENTE
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertarCliente(Cliente cliente);
-
-
 
     @Query("UPDATE cliente Set nombre = :nombre where  nombre = :user")
     void actualizarUsuario(String user, String nombre);

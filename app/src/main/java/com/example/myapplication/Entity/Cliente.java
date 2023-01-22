@@ -18,7 +18,7 @@ public class Cliente {
     @ColumnInfo(name ="email")
     String email;
 
-    @ColumnInfo(name ="Nombre")
+    @ColumnInfo(name ="nombre")
     String nombre;
 
     @ColumnInfo(name ="apellidos")

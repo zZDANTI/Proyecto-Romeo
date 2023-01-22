@@ -1,9 +1,7 @@
 package com.example.myapplication.ventanas.register;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,24 +17,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.myapplication.BaseDatos.BaseDatos;
 import com.example.myapplication.Entity.Cliente;
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.Menu;
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityMainBinding;
-import com.example.myapplication.databinding.FragmentHomeBinding;
-import com.example.myapplication.databinding.FragmentLoginBinding;
 import com.example.myapplication.databinding.FragmentRegisterBinding;
-import com.example.myapplication.databinding.FragmentReservasBinding;
 import com.example.myapplication.ventanas.login.LoginFragment;
-import com.example.myapplication.ventanas.login.LoginViewModel;
 
 public class RegisterFragment extends Fragment {
 
 
-
-    Button button;
     private FragmentRegisterBinding binding;
 
 
@@ -44,10 +33,8 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
+
         RegisterViewModel registerViewModel=new ViewModelProvider(this).get(RegisterViewModel.class);
-
-
-
 
         binding.loginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,30 +54,39 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Creando usuario
-                String nombre = String.valueOf(binding.nombreRegistro.getText());
-                String apellidos = String.valueOf(binding.apellidosRegistro.getText());
-                String email = String.valueOf(binding.emailRegistro.getText());
-                String contrasenya = String.valueOf(binding.contrasenyaRegistro.getText());
+                String nombre = binding.nombreRegistro.getText().toString();
+                String apellidos = binding.apellidosRegistro.getText().toString();
+                String email = binding.emailRegistro.getText().toString();
+                String contrasenya = binding.contrasenyaRegistro.getText().toString();
+
+                //Si inserta algo vacion no entrará
 
                 if (!(nombre.isEmpty()||apellidos.isEmpty()||email.isEmpty()||contrasenya.isEmpty())){
-                    //Se inserta en la base de datos
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            registerViewModel.insertarCliente(new Cliente(nombre,apellidos,email,contrasenya));
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getActivity(), Menu.class));
-                                    getActivity().onBackPressed();
-
-
-                                }
-                            });
+                    registerViewModel.validarUsuario(email).observe(getActivity(), ec -> {
+                        if (ec.getEmail().equals(email)) {
+                            Toast.makeText(getContext(), "El email ya está registrado", Toast.LENGTH_SHORT).show();
 
                         }
-                    }).start();
+                        //Se inserta en la base de datos
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                registerViewModel.insertarCliente(new Cliente(email,nombre,apellidos,contrasenya));
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getActivity(), Menu.class));
+                                        getActivity().onBackPressed();
+                                    }
+                                });
+
+
+                            }
+                        }).start();
+
+
+                    });
 
 
                 }else{
@@ -103,6 +99,7 @@ public class RegisterFragment extends Fragment {
 
         return binding.getRoot();
     }
+
 
 
 

@@ -62,36 +62,43 @@ public class RegisterFragment extends Fragment {
                 //Si inserta algo vacion no entrará
 
                 if (!(nombre.isEmpty()||apellidos.isEmpty()||email.isEmpty()||contrasenya.isEmpty())){
+
                     registerViewModel.validarUsuario(email).observe(getActivity(), ec -> {
-                        if (ec.getEmail().equals(email)) {
+                        if (ec!=null && ec.getEmail().equals(email)) {
+                            System.out.println(ec.getEmail()+ email);
                             Toast.makeText(getContext(), "El email ya está registrado", Toast.LENGTH_SHORT).show();
 
+                        }else{
+                            //Se inserta en la base de datos
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    registerViewModel.insertarCliente(new Cliente(email,nombre,apellidos,contrasenya));
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getActivity(), Menu.class));
+                                            getActivity().onBackPressed();
+                                        }
+                                    });
+
+
+                                }
+                            }).start();
                         }
-                        //Se inserta en la base de datos
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                registerViewModel.insertarCliente(new Cliente(email,nombre,apellidos,contrasenya));
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getActivity(), Menu.class));
-                                        getActivity().onBackPressed();
-                                    }
-                                });
-
-
-                            }
-                        }).start();
-
 
                     });
+
+
+
 
 
                 }else{
                     Toast.makeText(getContext(), "No puedes dejar campos vacios", Toast.LENGTH_SHORT).show();
                 }
+
+
 
             }
 

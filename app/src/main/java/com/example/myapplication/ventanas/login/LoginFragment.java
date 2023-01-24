@@ -58,6 +58,7 @@ public class LoginFragment extends Fragment {
 
                                                 Toast.makeText(getContext(),"Usuario no encontrado", Toast.LENGTH_SHORT).show();
                                             }else {
+
                                                 if (ec.getPassword().equals(binding.contrasenyaLogin.getText().toString())) {
                                                     startActivity(new Intent(getActivity(), Menu.class));
                                                     getActivity().onBackPressed();

@@ -21,7 +21,7 @@
         android:id="@+id/llamenos"
         android:layout_width="284dp"
         android:layout_height="23dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="@string/llamadas"
         android:textSize="19dp"
@@ -30,16 +30,18 @@
         app:layout_constraintStart_toStartOf="@+id/cuadroAtecion"
         app:layout_constraintTop_toTopOf="@+id/cuadroAtecion" />
 
-    <TextView
+    <Button
         android:id="@+id/numeroHotel"
-        android:layout_width="259dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="188dp"
+        android:layout_height="46dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#3BFFFFFF"
         android:gravity="center"
         android:text="@string/numeHotel"
-        android:textSize="19dp"
+        android:textColor="#7A7979"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/cuadroAtecion"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="@+id/cuadroAtecion"
         app:layout_constraintTop_toBottomOf="@+id/llamenos" />
 

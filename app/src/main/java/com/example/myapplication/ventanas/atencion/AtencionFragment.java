@@ -1,5 +1,7 @@
 package com.example.myapplication.ventanas.atencion;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,9 +38,18 @@ public class AtencionFragment extends Fragment {
         final TextView textView = binding.mensajeCorreo;
         atencionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        binding.numeroHotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri number= Uri.parse("tel:682924866");
+                Intent callIntent = new Intent(Intent.ACTION_DIAL,number);
+                startActivity(callIntent);
+            }
+        });
 
         return root;
     }
+
 
     @Override
     public void onDestroyView() {

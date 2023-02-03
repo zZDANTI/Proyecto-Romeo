@@ -35,53 +35,6 @@ public class ClienteFragment extends Fragment {
         clienteViewModel=new ViewModelProvider(this).get(ClienteViewModel.class);
 
 
-        //listado.add(new Cliente("s","w"));
-
-        try {
-
-            binding.botonInsertar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    clienteViewModel.getOneCliente("2").observe(getViewLifecycleOwner(),cliente->{
-                        System.out.println(cliente.getNombre());
-                    });
-
-                    clienteViewModel.getListadoCliente().observe(getViewLifecycleOwner(),listaCli->{
-                        System.out.println("NUM CLIENTES: "+listaCli.size());
-
-                        for (Cliente c: listaCli
-                             ) {
-                            binding.cliente.append("\n"+c.getId()+"  "+c.getNombre());
-                        }
-
-                    });
-                      if(listado!=null){
-                          Toast.makeText(getContext(), "CLIC NO NULL", Toast.LENGTH_SHORT).show();
-
-                      }
-                    else{
-                          Toast.makeText(getContext(), "CLIC NULL", Toast.LENGTH_SHORT).show();
-
-                      }
-
-
-                }
-            });
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-
-
-
-
-
-
-
-
-
 
 
         return binding.getRoot();

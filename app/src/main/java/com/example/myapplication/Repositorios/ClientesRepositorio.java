@@ -9,10 +9,11 @@ import java.util.List;
 
 public class ClientesRepositorio {
 
-    //Crear uno para cada uno
 
    public final LiveData<List<Cliente>> listadoCliente;
    public final ClientesDao clientesDao;
+
+   //CONSTRUCTOR
 
     public ClientesRepositorio(Context context) {
         BaseDatos baseDatos = BaseDatos.getInstance(context);
@@ -30,12 +31,7 @@ public class ClientesRepositorio {
         return clientesDao.obtenerCliente(mId);
     }
 
-    //Metodos
-
-    //Comprueba si el cliente esta registrado
-
-
-
+    //METODOS
 
 
     //Valida un cliente para poder iniciar sesion en login o comprueba si esta registrado

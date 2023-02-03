@@ -8,9 +8,9 @@
 
     <fragment
         android:id="@+id/navigation_reservas"
-        android:name="com.example.myapplication.ventanas.reservas.ReservasFragment"
+        android:name="com.example.myapplication.ventanas.habitaciones.HabitacionesFragment"
         android:label="@string/title_reservas"
-        tools:layout="@layout/fragment_reservas" />
+        tools:layout="@layout/fragment_habitaciones" />
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.myapplication.ventanas.home.HomeFragment"

@@ -8,19 +8,25 @@ import androidx.room.RoomDatabase;
 
 
 import com.example.myapplication.Daos.ClientesDao;
+import com.example.myapplication.Daos.HabitacionDao;
+import com.example.myapplication.Daos.ReservasDao;
 import com.example.myapplication.Entity.Cliente;
+import com.example.myapplication.Entity.Habitaciones;
+import com.example.myapplication.Entity.Reservas;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 //Faltan clases
 
-@Database(entities = {Cliente.class}, version = 1)
+@Database(entities = {Cliente.class, Reservas.class, Habitaciones.class}, version = 1)
 public abstract class BaseDatos extends RoomDatabase {
 
     //Exposición de los DAOs: Se crea un método get*() abstracto por cada DAO que tengamos
     //Todos los dao
     public abstract ClientesDao clientesDao();
+    public abstract HabitacionDao habitacionDao();
+    public abstract ReservasDao reservasDao();
 
     private static final String DATABASE_NAME = "hotel_db";
 

@@ -39,11 +39,9 @@ public class Reservas {
 
     //CONSTRUCTOR
 
-    public Reservas(int id, String fechaEntrada, String fechaSalida, String idHabitacion, String idEmail) {
-        this.id = id;
+    public Reservas(String fechaEntrada, String fechaSalida, String idEmail) {
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
-        this.idHabitacion = idHabitacion;
         this.idEmail = idEmail;
     }
 

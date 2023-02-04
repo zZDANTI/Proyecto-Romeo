@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
                 binding.pruebaHome.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        homeViewModel.insertarReserva(new Reservas( 1,"04-02-2023","04-02-2024","1",emailCliente));
+                        homeViewModel.insertarReserva(new Reservas("04-02-2023","04-02-2024",emailCliente));
 
                     }
                 });

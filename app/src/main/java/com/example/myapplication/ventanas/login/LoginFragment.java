@@ -46,16 +46,15 @@ public class LoginFragment extends Fragment {
         LoginViewModel loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
 
         sharedPreferences=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
-
         recordarContra=(CheckBox) binding.recordarContrasenya;
-
         binding.emailLogin.setText(sharedPreferences.getString("email",""));
         binding.contrasenyaLogin.setText(sharedPreferences.getString("contrasenya",""));
         recordarContra.setChecked(false);
+
+
         if (!(sharedPreferences.getString("email","").length()==0)){
             recordarContra.setChecked(true);
         }
-
 
         try {
             binding.loginInicio.setOnClickListener(new View.OnClickListener() {

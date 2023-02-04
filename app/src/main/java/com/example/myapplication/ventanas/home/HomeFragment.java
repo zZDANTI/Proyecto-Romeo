@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myapplication.Entity.Reservas;
 import com.example.myapplication.Menu;
 import com.example.myapplication.Repositorios.ReservasRepositorio;
 import com.example.myapplication.databinding.FragmentHomeBinding;
@@ -26,23 +27,46 @@ public class HomeFragment extends Fragment {
     SharedPreferences sharedPreferences;
     String emailCliente;
 
+    String fechaEntrada;
+
+    int i;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        ReservasRepositorio reservasRepositorio = new ReservasRepositorio(context);
 
-        //Datos del usuario
+
+        //DATOS USUARIO
         sharedPreferences=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
         emailCliente= sharedPreferences.getString("emailUsuario", "");
-        binding.reservaDelCliente.setText(emailCliente);
 
 
-       //DATOS DEL CLIENTE
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                binding.pruebaHome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        homeViewModel.insertarReserva(new Reservas( 1,"04-02-2023","04-02-2024","1",emailCliente));
 
-        reservasRepositorio.reservasCliente(emailCliente).observe(getActivity(),rc->{
+                    }
+                });
 
+            }
+        }).start();
+
+
+
+       //SI HAY UNA RESERVA LE APARECERA EN EL FRAGMENT DE HOME
+        homeViewModel.reservasUsuario(emailCliente).observe(getActivity(),rc->{
+            if(rc!=null){
+                binding.reservaDelCliente.setText("No tienes ninguna reserva");
+            }else{
+
+                binding.reservaDelCliente.setText(rc.get(i).getFechaEntrada());
+            }
 
         });
 

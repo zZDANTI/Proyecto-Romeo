@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.myapplication.BaseDatos.BaseDatos;
 import com.example.myapplication.Entity.Cliente;
 import com.example.myapplication.Entity.Reservas;
 import com.example.myapplication.Repositorios.ClientesRepositorio;
@@ -24,8 +25,13 @@ public class HomeViewModel extends AndroidViewModel {
         listadoReserva = reservasRepositorio.listadoReservas;
     }
 
-    //Coge la reserva que tenga un usuario
-    public LiveData<List<Reservas>> reservasUsuario(){
-        return reservasRepositorio.listadoReservas;
+    //SE USA EN EL HOME PARA SABER EL DIA QUE TIENE RESERVADO EL CLIENTE
+    public LiveData<List<Reservas>> reservasUsuario(String idEmail){
+        return reservasRepositorio.reservasUsuario(idEmail);
     }
+
+    public  void insertarReserva(Reservas reservas){
+        reservasRepositorio.insertarReserva(reservas);
+    }
+
 }

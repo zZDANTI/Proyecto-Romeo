@@ -13,21 +13,21 @@ public class Habitaciones {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name ="id")
-    public int id;
+    int id;
     @ColumnInfo(name ="nombre")
-    public String nombre;
+    String nombre;
 
     @ColumnInfo(name ="numPersonas")
-    public int numPersonas;
+    int numPersonas;
 
-    @ColumnInfo(name ="descrip")
-    public String descrip;
+    @ColumnInfo(name ="descripcion")
+    String descrip;
 
     @ColumnInfo(name ="precio")
-    public double precio;
+    double precio;
 
     @ColumnInfo(name ="imagen")
-    public int imagen;
+    int imagen;
 
 
     //CONSTRUCTOR

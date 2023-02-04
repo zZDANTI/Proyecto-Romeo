@@ -65,7 +65,6 @@ public class RegisterFragment extends Fragment {
 
                     registerViewModel.validarUsuario(email).observe(getActivity(), ec -> {
                         if (ec!=null && ec.getEmail().equals(email)) {
-                            System.out.println(ec.getEmail()+ email);
                             Toast.makeText(getContext(), "El email ya está registrado", Toast.LENGTH_SHORT).show();
 
                         }else{

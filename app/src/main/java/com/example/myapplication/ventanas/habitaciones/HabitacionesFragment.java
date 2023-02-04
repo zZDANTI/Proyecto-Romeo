@@ -33,7 +33,6 @@ public class HabitacionesFragment extends Fragment {
 
 
 
-
         //Fragment
         binding = FragmentHabitacionesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

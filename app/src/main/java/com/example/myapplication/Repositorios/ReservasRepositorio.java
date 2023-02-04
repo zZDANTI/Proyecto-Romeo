@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.myapplication.BaseDatos.BaseDatos;
 import com.example.myapplication.Daos.ReservasDao;
+import com.example.myapplication.Entity.Cliente;
 import com.example.myapplication.Entity.Reservas;
 
 import java.util.List;
@@ -35,8 +36,16 @@ public class ReservasRepositorio {
 
     //METODOS
 
-    public LiveData<List<Reservas>> reservasCliente(String idEmail) {
-        return reservasDao.reservasCliente(idEmail);
+    //SE USA EN EL HOME PARA SABER EL DIA QUE TIENE RESERVADO EL CLIENTE
+    public LiveData<List<Reservas>> reservasUsuario(String idEmail) {
+        return reservasDao.reservasUsuario(idEmail);
+    }
+
+    //SE USA PARA INSERTAR UNA RESERVA DEL CLIENTE
+    public void insertarReserva(Reservas reservas){
+        BaseDatos.dbExecutor.execute(
+                ()-> reservasDao.insertarReserva(reservas)
+        );
     }
 
 }

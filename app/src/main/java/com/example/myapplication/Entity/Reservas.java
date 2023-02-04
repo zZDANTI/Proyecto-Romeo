@@ -23,36 +23,28 @@ public class Reservas {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
-    public int id;
+    int id;
 
     @ColumnInfo(name = "fechaEntrada")
-    public String fechaEntrada;
+    String fechaEntrada;
 
     @ColumnInfo(name = "fechaSalida")
-    public String fechaSalida;
+    String fechaSalida;
 
     @ColumnInfo(name = "idHabitacion")
-    public int idHabitacion;
+    String idHabitacion;
 
     @ColumnInfo(name = "idEmail")
-    public int idEmail;
-
-    @ColumnInfo(name = "observaciones")
-    public String observaciones;
-
-    @ColumnInfo(name = "precio")
-    public String precio;
+    String idEmail;
 
     //CONSTRUCTOR
 
-    public Reservas(int id, String fechaEntrada, String fechaSalida, int idHabitacion, int idEmail, String observaciones, String precio) {
+    public Reservas(int id, String fechaEntrada, String fechaSalida, String idHabitacion, String idEmail) {
         this.id = id;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.idHabitacion = idHabitacion;
         this.idEmail = idEmail;
-        this.observaciones = observaciones;
-        this.precio = precio;
     }
 
 
@@ -83,35 +75,19 @@ public class Reservas {
         this.fechaSalida = fechaSalida;
     }
 
-    public int getIdHabitacion() {
+    public String getIdHabitacion() {
         return idHabitacion;
     }
 
-    public void setIdHabitacion(int idHabitacion) {
+    public void setIdHabitacion(String idHabitacion) {
         this.idHabitacion = idHabitacion;
     }
 
-    public int getIdEmail() {
+    public String getIdEmail() {
         return idEmail;
     }
 
-    public void setIdEmail(int idCliente) {
-        this.idEmail = idCliente;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public String getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
+    public void setIdEmail(String idEmail) {
+        this.idEmail = idEmail;
     }
 }

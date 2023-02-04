@@ -16,7 +16,7 @@ public interface ReservasDao {
     // Todas las consultas para poder coger reservas de la base de datos
 
     @Insert
-    void insert(Reservas reservas);
+    void insertarReserva(Reservas reservas);
 
     @Update
     void update(Reservas reservas);
@@ -27,8 +27,10 @@ public interface ReservasDao {
     @Query("SELECT * FROM reservas ")
     LiveData<List<Reservas>> todasReservas();
 
+
+    //SE USA EN EL HOME PARA SABER EL DIA QUE TIENE RESERVADO EL CLIENTE
     @Query("SELECT * FROM reservas WHERE idEmail =:miEmail ")
-    LiveData<List<Reservas>> reservasCliente(String miEmail);
+    LiveData<List<Reservas>> reservasUsuario(String miEmail);
 
 
     @Query("SELECT * FROM reservas WHERE id =:miIdReserva ")

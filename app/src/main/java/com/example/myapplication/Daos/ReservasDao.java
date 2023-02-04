@@ -16,26 +16,26 @@ public interface ReservasDao {
     // Todas las consultas para poder coger reservas de la base de datos
 
     @Insert
-    public void insert(Reservas reservas);
+    void insert(Reservas reservas);
 
     @Update
-    public void update(Reservas reservas);
+    void update(Reservas reservas);
 
     @Delete
-    public void delete(Reservas reservas);
+    void delete(Reservas reservas);
 
     @Query("SELECT * FROM reservas ")
-    public LiveData<List<Reservas>> todasReservas();
+    LiveData<List<Reservas>> todasReservas();
 
-    @Query("SELECT * FROM reservas WHERE clienteEmail =:miEmail ")
-    public List<Reservas> getMyRooms(String miEmail);
+    @Query("SELECT * FROM reservas WHERE idEmail =:miEmail ")
+    LiveData<List<Reservas>> reservasCliente(String miEmail);
 
 
     @Query("SELECT * FROM reservas WHERE id =:miIdReserva ")
-    public Reservas getMyReserva(String miIdReserva);
+    Reservas getMyReserva(String miIdReserva);
 
 
-    @Query("SELECT * FROM reservas WHERE habitacionId =:idHabitacion ")
-    public List<Reservas> getMyBooksRoom(String idHabitacion);
+    @Query("SELECT * FROM reservas WHERE idHabitacion =:idHabitacion ")
+    List<Reservas> getMyBooksRoom(String idHabitacion);
 
 }

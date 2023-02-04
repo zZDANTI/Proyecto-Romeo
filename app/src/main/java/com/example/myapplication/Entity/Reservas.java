@@ -3,9 +3,21 @@ package com.example.myapplication.Entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "reservas")
+@Entity(tableName = "reservas",foreignKeys = {
+        @ForeignKey(
+                entity = Cliente.class,
+                parentColumns = "email",
+                childColumns = "idEmail"
+        ),
+        @ForeignKey(
+                entity = Habitaciones.class,
+                parentColumns = "id",
+                childColumns = "idHabitacion"
+        )
+})
 public class Reservas {
 
     @PrimaryKey(autoGenerate = true)
@@ -19,11 +31,11 @@ public class Reservas {
     @ColumnInfo(name = "fechaSalida")
     public String fechaSalida;
 
-    @ColumnInfo(name = "clienteEmail")
-    public String clienteEmail;
+    @ColumnInfo(name = "idHabitacion")
+    public int idHabitacion;
 
-    @ColumnInfo(name = "habitacionId")
-    public int habitacionId;
+    @ColumnInfo(name = "idEmail")
+    public int idEmail;
 
     @ColumnInfo(name = "observaciones")
     public String observaciones;
@@ -33,17 +45,19 @@ public class Reservas {
 
     //CONSTRUCTOR
 
-    public Reservas(int id, String fechaEntrada, String fechaSalida, String clienteEmail, int habitacionId, String observaciones, String precio) {
+    public Reservas(int id, String fechaEntrada, String fechaSalida, int idHabitacion, int idEmail, String observaciones, String precio) {
         this.id = id;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
-        this.clienteEmail = clienteEmail;
-        this.habitacionId = habitacionId;
+        this.idHabitacion = idHabitacion;
+        this.idEmail = idEmail;
         this.observaciones = observaciones;
         this.precio = precio;
     }
 
+
     //GETTER Y SETTERS
+
 
     public int getId() {
         return id;
@@ -69,20 +83,20 @@ public class Reservas {
         this.fechaSalida = fechaSalida;
     }
 
-    public String getClienteEmail() {
-        return clienteEmail;
+    public int getIdHabitacion() {
+        return idHabitacion;
     }
 
-    public void setClienteEmail(String clienteEmail) {
-        this.clienteEmail = clienteEmail;
+    public void setIdHabitacion(int idHabitacion) {
+        this.idHabitacion = idHabitacion;
     }
 
-    public int getHabitacionId() {
-        return habitacionId;
+    public int getIdEmail() {
+        return idEmail;
     }
 
-    public void setHabitacionId(int habitacionId) {
-        this.habitacionId = habitacionId;
+    public void setIdEmail(int idCliente) {
+        this.idEmail = idCliente;
     }
 
     public String getObservaciones() {

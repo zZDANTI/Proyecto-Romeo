@@ -42,31 +42,29 @@
         android:id="@+id/contrasenyaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:textColor="@color/black"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/emailLogin"
-        app:layout_constraintVertical_bias="0.0"
-        android:textColorHint="@color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
 
     <EditText
         android:id="@+id/emailLogin"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="208dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
@@ -78,10 +76,22 @@
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/emailLogin"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.333" />
+
+    <CheckBox
+        android:id="@+id/recordarContrasenya"
+        android:layout_width="194dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/contrasenyaLogin" />
 
     <FrameLayout
         android:id="@+id/loginFragment"
@@ -89,6 +99,7 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="-52dp">
+
 
     </FrameLayout>
 

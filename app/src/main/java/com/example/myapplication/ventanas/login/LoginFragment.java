@@ -1,6 +1,8 @@
 package com.example.myapplication.ventanas.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,13 +33,29 @@ import com.example.myapplication.ventanas.register.RegisterFragment;
 
 
 public class LoginFragment extends Fragment {
-    String comprobarContrasenya, comprobarEmail;
+
+    SharedPreferences sharedPreferences;
+    String emailCliente;
+    CheckBox recordarContra;
     private FragmentLoginBinding binding;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         LoginViewModel loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
+
+        sharedPreferences=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+
+        recordarContra=(CheckBox) binding.recordarContrasenya;
+
+        binding.emailLogin.setText(sharedPreferences.getString("email",""));
+        binding.contrasenyaLogin.setText(sharedPreferences.getString("contrasenya",""));
+        recordarContra.setChecked(false);
+        if (!(sharedPreferences.getString("email","").length()==0)){
+            recordarContra.setChecked(true);
+        }
+
 
         try {
             binding.loginInicio.setOnClickListener(new View.OnClickListener() {
@@ -60,10 +79,18 @@ public class LoginFragment extends Fragment {
                                             }else {
 
                                                 if (ec.getPassword().equals(binding.contrasenyaLogin.getText().toString())) {
+                                                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                                                    if (recordarContra.isChecked()){
+                                                        editor.putString("email",binding.emailLogin.getText().toString());
+                                                        editor.putString("contrasenya",binding.contrasenyaLogin.getText().toString());
+                                                    }else {
+                                                        editor.putString("email","");
+                                                        editor.putString("contrasenya","");
+                                                    }
+                                                    editor.putString("emailUsuario",binding.emailLogin.getText().toString());
+                                                    editor.commit();
                                                     startActivity(new Intent(getActivity(), Menu.class));
                                                     getActivity().onBackPressed();
-
-
                                                 } else {
                                                     Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
                                                 }

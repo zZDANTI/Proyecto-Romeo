@@ -34,4 +34,9 @@ public class ReservasRepositorio {
     }
 
     //METODOS
+
+    public LiveData<List<Reservas>> reservasCliente(String idEmail) {
+        return reservasDao.reservasCliente(idEmail);
+    }
+
 }

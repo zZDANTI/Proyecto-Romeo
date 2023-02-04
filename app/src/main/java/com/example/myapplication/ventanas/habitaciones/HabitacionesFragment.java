@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myapplication.databinding.FragmentHabitacionesBinding;
 
 
+
 public class HabitacionesFragment extends Fragment {
 
     private FragmentHabitacionesBinding binding;
@@ -25,14 +26,14 @@ public class HabitacionesFragment extends Fragment {
         //Instancia del VIEW MODEL
         HabitacionesViewModel habitacionesViewModel = new ViewModelProvider(this).get(HabitacionesViewModel.class);
 
-        habitacionesViewModel.listadoReservas();
 
 
 
 
 
 
-        
+
+
         //Fragment
         binding = FragmentHabitacionesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

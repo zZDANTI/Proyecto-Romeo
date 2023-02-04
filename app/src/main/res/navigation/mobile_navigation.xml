@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    android:label="@string/title_reservas"
+    android:label="@string/title_habitaciones"
     app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/navigation_reservas"
+        android:id="@+id/navigation_habitaciones"
         android:name="com.example.myapplication.ventanas.habitaciones.HabitacionesFragment"
-        android:label="@string/title_reservas"
+        android:label="@string/title_habitaciones"
         tools:layout="@layout/fragment_habitaciones" />
     <fragment
         android:id="@+id/navigation_home"

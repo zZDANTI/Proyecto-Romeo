@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myapplication.Entity.Habitaciones;
 import com.example.myapplication.Entity.Reservas;
 import com.example.myapplication.Menu;
 import com.example.myapplication.Repositorios.ReservasRepositorio;
@@ -27,7 +28,6 @@ public class HomeFragment extends Fragment {
     SharedPreferences sharedPreferences;
     String emailCliente;
 
-    String fechaEntrada;
 
     int i;
 
@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         homeViewModel.insertarReserva(new Reservas("04-02-2023","04-02-2024",emailCliente));
+                        homeViewModel.insertarHabitaciones(new Habitaciones("Tu muertos",4,"No hay mierda",100, 1));
 
                     }
                 });

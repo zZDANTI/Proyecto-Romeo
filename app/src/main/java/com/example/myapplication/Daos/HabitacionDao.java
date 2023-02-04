@@ -26,7 +26,7 @@ public interface HabitacionDao {
     void delete(Habitaciones habitaciones);
 
     @Insert
-    void insert(Habitaciones habitaciones);
+    void insertarHabitaciones(Habitaciones habitaciones);
 
 
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import com.example.myapplication.BaseDatos.BaseDatos;
 import com.example.myapplication.Daos.HabitacionDao;
 import com.example.myapplication.Entity.Habitaciones;
+import com.example.myapplication.Entity.Reservas;
 
 import java.util.List;
 
@@ -34,4 +35,10 @@ public class HabitacionesRepositorios {
     }
 
     //METODOS
+
+    public void insertarHabitaciones(Habitaciones habitaciones){
+        BaseDatos.dbExecutor.execute(
+                ()-> habitacionDao.insertarHabitaciones(habitaciones)
+        );
+    }
 }

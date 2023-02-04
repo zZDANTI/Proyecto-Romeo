@@ -13,6 +13,7 @@ public class Habitaciones {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name ="id")
+    public
     int id;
     @ColumnInfo(name ="nombre")
     String nombre;
@@ -33,8 +34,7 @@ public class Habitaciones {
     //CONSTRUCTOR
 
 
-    public Habitaciones(int id, String nombre, int numPersonas, String descrip, double precio, int imagen) {
-        this.id = id;
+    public Habitaciones( String nombre, int numPersonas, String descrip, double precio, int imagen) {
         this.nombre = nombre;
         this.numPersonas = numPersonas;
         this.descrip = descrip;

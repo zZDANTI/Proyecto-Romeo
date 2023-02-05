@@ -26,6 +26,9 @@ import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentRegisterBinding;
 import com.example.myapplication.ventanas.login.LoginFragment;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterFragment extends Fragment {
 
 
@@ -83,38 +86,40 @@ public class RegisterFragment extends Fragment {
                             Toast.makeText(getContext(), "El email ya está registrado", Toast.LENGTH_SHORT).show();
 
                         }else{
-                            //Se inserta en la base de datos
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    registerViewModel.insertarCliente(new Cliente(email,nombre,apellidos,contrasenya));
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
-                                            SharedPreferences.Editor editor=sharedPreferences.edit();
-                                            if (recordarContra.isChecked()){
-                                                editor.putString("email",binding.emailRegistro.getText().toString());
-                                            }else {
-                                                editor.putString("email","");
+                                //Se inserta en la base de datos
+                            if (validarUsuario(email,nombre,apellidos,contrasenya)){
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        registerViewModel.insertarCliente(new Cliente(email,nombre,apellidos,contrasenya));
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                                if (recordarContra.isChecked()){
+                                                    editor.putString("email",binding.emailRegistro.getText().toString());
+                                                }else {
+                                                    editor.putString("email","");
+                                                }
+                                                editor.putString("emailUsuario",binding.emailRegistro.getText().toString());
+                                                editor.commit();
+                                                startActivity(new Intent(getActivity(), Menu.class));
+                                                getActivity().onBackPressed();
                                             }
-                                            editor.putString("emailUsuario",binding.emailRegistro.getText().toString());
-                                            editor.commit();
-                                            startActivity(new Intent(getActivity(), Menu.class));
-                                            getActivity().onBackPressed();
-                                        }
-                                    });
+                                        });
+
+                                    }
 
 
-                                }
-                            }).start();
+                                }).start();
+                            }
+
+
                         }
 
                     });
-
-
-
-
 
                 }else{
                     Toast.makeText(getContext(), "No puedes dejar campos vacios", Toast.LENGTH_SHORT).show();
@@ -127,6 +132,34 @@ public class RegisterFragment extends Fragment {
         });
 
         return binding.getRoot();
+    }
+
+    public boolean validarUsuario(String email ,String nombre, String apellido, String contrasenya ){
+        Pattern patronEmail = Pattern.compile("[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}");
+        Matcher mEmail = patronEmail.matcher(email.toLowerCase());
+        Pattern patronTexto = Pattern.compile("[a-zA-ZñÑüÜáéíóúÁÉÍÓÚ\\s]{3,}");
+        Matcher mNombre = patronTexto.matcher(nombre);
+        Matcher mApellidos = patronTexto.matcher(apellido);
+        Pattern patronContrasenya = Pattern.compile("^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,16}$");
+        Matcher mContrasenya = patronContrasenya.matcher(contrasenya);
+        if (mEmail.matches()){
+            if (mNombre.matches()){
+                if (mApellidos.matches()){
+                    if (mContrasenya.matches()){
+                        return true;
+                    }else{
+                        Toast.makeText(getContext(), "Tu contraseña no es segura", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(getContext(), "Tu apellido no puede contener caracteres especiales", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                Toast.makeText(getContext(), "Tu nombre no puede contener caracteres especiales", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(getContext(), "Email incorrecto", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 
 

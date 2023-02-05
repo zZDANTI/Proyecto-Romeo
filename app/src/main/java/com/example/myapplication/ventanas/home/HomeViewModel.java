@@ -33,7 +33,7 @@ public class HomeViewModel extends AndroidViewModel {
     }
 
     //SE USA EN EL HOME PARA SABER EL DIA QUE TIENE RESERVADO EL CLIENTE
-    public LiveData<List<Reservas>> reservasUsuario(String idEmail){
+    public String reservasUsuario(String idEmail){
         return reservasRepositorio.reservasUsuario(idEmail);
     }
 

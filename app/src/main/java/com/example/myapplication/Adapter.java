@@ -23,10 +23,10 @@ public class Adapter extends BaseAdapter {
 
     LayoutInflater inflater;
 
-    LiveData<List<Habitaciones>> listaHabitaciones;
+    List<Habitaciones> listaHabitaciones;
 
 
-    public Adapter(Context context, LiveData<List<Habitaciones>>listaHabitaciones) {
+    public Adapter(Context context, List<Habitaciones>listaHabitaciones) {
         this.context = context;
         this.inflater = (LayoutInflater.from(context));
         this.listaHabitaciones = listaHabitaciones;
@@ -34,13 +34,12 @@ public class Adapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
-        //listaHabitaciones.size
+        return listaHabitaciones.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return listaHabitaciones.getValue().get(i);
+        return listaHabitaciones.get(i).getId();
     }
 
     @Override
@@ -52,16 +51,16 @@ public class Adapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflater.inflate(R.layout.custom_view, viewGroup, false);
         ImageView miniImagen = view.findViewById(R.id.imageView);
-        miniImagen.setImageResource(listaHabitaciones.getValue().get(i).getImagen());
+        miniImagen.setImageResource(listaHabitaciones.get(i).getImagen());
         TextView txNombre = view.findViewById(R.id.textTitle);
         TextView txtDescp = view.findViewById(R.id.textDesc);
         TextView txtPrecio = view.findViewById(R.id.textPrice);
         TextView txtId = view.findViewById(R.id.textIdHabitacion);
-        txNombre.setText(listaHabitaciones.getValue().get(i).getNombre());
-        txtDescp.setText(listaHabitaciones.getValue().get(i).getDescrip());
-        String num = String.valueOf(listaHabitaciones.getValue().get(i).getPrecio());
+        txNombre.setText(listaHabitaciones.get(i).getNombre());
+        txtDescp.setText(listaHabitaciones.get(i).getDescrip());
+        String num = String.valueOf(listaHabitaciones.get(i).getPrecio());
         txtPrecio.setText(num + "DH");
-        num = String.valueOf(listaHabitaciones.getValue().get(i).getId());
+        num = String.valueOf(listaHabitaciones.get(i).getId());
         txtId.setText(num);
         return view;
 

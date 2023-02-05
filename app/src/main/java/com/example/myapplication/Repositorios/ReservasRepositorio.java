@@ -24,21 +24,16 @@ public class ReservasRepositorio {
         listadoReservas = reservasDao.todasReservas();
     }
 
-    //GETTER
-
-    public LiveData<List<Reservas>> listadoReservas() {
-        return listadoReservas;
-    }
-
-    public ReservasDao getReservasDao() {
-        return reservasDao;
-    }
 
     //METODOS
 
     //SE USA EN EL HOME PARA SABER EL DIA QUE TIENE RESERVADO EL CLIENTE
-    public LiveData<List<Reservas>> reservasUsuario(String idEmail) {
+    public String reservasUsuario(String idEmail) {
         return reservasDao.reservasUsuario(idEmail);
+    }
+
+    public LiveData<List<Reservas>>todasReservas() {
+        return reservasDao.todasReservas();
     }
 
     //SE USA PARA INSERTAR UNA RESERVA DEL CLIENTE

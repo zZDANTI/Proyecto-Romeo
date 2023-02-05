@@ -16,10 +16,18 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myapplication.Entity.Habitaciones;
 import com.example.myapplication.Entity.Reservas;
 import com.example.myapplication.Menu;
+import com.example.myapplication.R;
 import com.example.myapplication.Repositorios.ReservasRepositorio;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.databinding.FragmentLoginBinding;
 import com.example.myapplication.ventanas.habitaciones.HabitacionesViewModel;
+import com.example.myapplication.ventanas.home.HomeViewModel;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class HomeFragment extends Fragment {
 
@@ -29,47 +37,52 @@ public class HomeFragment extends Fragment {
     String emailCliente;
 
 
+
+
     int i;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
+
+        //homeViewModel.insertarReserva(new Reservas("2023-03-02","2023-03-05",1,"s"));
+
+        homeViewModel.insertarHabitaciones(new Habitaciones(1,"PEPITO",135,"Una suite estilo tropical moderna en la cual hay una cama de matrimonio, un baño con ducha estilo moderno, luces de ambiente tropical y buenas vistas a la playa",14,R.drawable.fondoinicio));
+        homeViewModel.insertarHabitaciones(new Habitaciones(2,"PEPITO",95,"Una habitación cómoda para varias personas con minimos requisitos y útil para pasar la noche",13,R.drawable.fondoinicio));
+        homeViewModel.insertarHabitaciones(new Habitaciones(3,"PEPITO",135,"Una suite estilo tropical moderna en la cual hay una cama de matrimonio, un baño con ducha estilo moderno, luces de ambiente tropical y buenas vistas a la playa",14,R.drawable.fondoinicio));
+        homeViewModel.insertarHabitaciones(new Habitaciones(4,"PEPITO",95,"Una habitación cómoda para varias personas con minimos requisitos y útil para pasar la noche",13,R.drawable.fondoinicio));
+        homeViewModel.insertarHabitaciones(new Habitaciones(5,"PEPITO",135,"Una suite estilo tropical moderna en la cual hay una cama de matrimonio, un baño con ducha estilo moderno, luces de ambiente tropical y buenas vistas a la playa",14,R.drawable.fondoinicio));
+        homeViewModel.insertarHabitaciones(new Habitaciones(6,"PEPITO",95,"Una habitación cómoda para varias personas con minimos requisitos y útil para pasar la noche",13,R.drawable.fondoinicio));
+        homeViewModel.insertarHabitaciones(new Habitaciones(7,"PEPITO",135,"Una suite estilo tropical moderna en la cual hay una cama de matrimonio, un baño con ducha estilo moderno, luces de ambiente tropical y buenas vistas a la playa",14,R.drawable.fondoinicio));
 
         //DATOS USUARIO
         sharedPreferences=getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
         emailCliente= sharedPreferences.getString("emailUsuario", "");
 
 
+
+
+       //SI HAY UNA RESERVA LE APARECERA EN EL FRAGMENT DE HOME
+
         new Thread(new Runnable() {
             @Override
             public void run() {
-                binding.pruebaHome.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        homeViewModel.insertarReserva(new Reservas("04-02-2023","04-02-2024",emailCliente));
-                        homeViewModel.insertarHabitaciones(new Habitaciones("Tu muertos",4,"No hay mierda",100, 1));
+                if(homeViewModel.reservasUsuario(emailCliente)==null){
+                    binding.reservaDelCliente.setText("No tienes ninguna reserva");
+                }else{
+                    binding.reservaDelCliente.setText(homeViewModel.reservasUsuario(emailCliente));
 
-                    }
-                });
-
+                }
             }
         }).start();
 
 
 
-       //SI HAY UNA RESERVA LE APARECERA EN EL FRAGMENT DE HOME
-        homeViewModel.reservasUsuario(emailCliente).observe(getActivity(),rc->{
-            if(rc!=null){
-                binding.reservaDelCliente.setText("No tienes ninguna reserva");
-            }else{
 
-                binding.reservaDelCliente.setText(rc.get(i).getFechaEntrada());
-            }
-
-        });
 
         View root = binding.getRoot();
 

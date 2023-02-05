@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".ventanas.reservas.MaxInfoReservar">
+
+
+    <ImageView
+        android:id="@+id/infoImagenHabitacion"
+        android:layout_width="wrap_content"
+        android:layout_height="246dp"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/infoNombreHabitacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="265dp"
+        android:fontFamily="sans-serif"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/infoSuiteCamasPrecioHabitaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="315dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="sans-serif"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/infoDescripcionHabitaciones"
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="sans-serif"
+        android:text=""
+        android:textColor="#484848"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/insertarFechaInicioReservaHabitacion"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="sans-serif"
+        android:hint="Inicio reserva"
+        android:onClick="CaptarInicioReserva"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#FF888888"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/insertarFechaFinReservaHabitacion"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="215dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="sans-serif"
+        android:hint="Fin reserva"
+        android:onClick="CaptarFinReserva"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#FF888888"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/reservarHabitacion"
+        android:layout_width="245dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="500dp"
+        android:onClick="reservarHabitacion"
+        android:text="Reservar"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+</FrameLayout>

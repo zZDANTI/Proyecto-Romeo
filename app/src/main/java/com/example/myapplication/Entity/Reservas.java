@@ -32,17 +32,18 @@ public class Reservas {
     String fechaSalida;
 
     @ColumnInfo(name = "idHabitacion")
-    String idHabitacion;
+    int idHabitacion;
 
     @ColumnInfo(name = "idEmail")
     String idEmail;
 
     //CONSTRUCTOR
 
-    public Reservas(String fechaEntrada, String fechaSalida, String idEmail) {
+    public Reservas(String fechaEntrada, String fechaSalida,int idHabitacion, String idEmail) {
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.idEmail = idEmail;
+        this.idHabitacion=idHabitacion;
     }
 
 
@@ -73,11 +74,11 @@ public class Reservas {
         this.fechaSalida = fechaSalida;
     }
 
-    public String getIdHabitacion() {
+    public int getIdHabitacion() {
         return idHabitacion;
     }
 
-    public void setIdHabitacion(String idHabitacion) {
+    public void setIdHabitacion(int idHabitacion) {
         this.idHabitacion = idHabitacion;
     }
 

@@ -42,7 +42,7 @@ public class RegisterFragment extends Fragment {
 
         RegisterViewModel registerViewModel=new ViewModelProvider(this).get(RegisterViewModel.class);
 
-        sharedPreferences=getActivity().getSharedPreferences("datosRegistro", Context.MODE_PRIVATE);
+        sharedPreferences=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
         recordarContra=(CheckBox) binding.checkRegister;
         binding.emailRegistro.setText(sharedPreferences.getString("email",""));
         recordarContra.setChecked(false);
@@ -50,7 +50,6 @@ public class RegisterFragment extends Fragment {
         if (!(sharedPreferences.getString("email","").length()==0)){
             recordarContra.setChecked(true);
         }
-
 
         binding.loginRegister.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public interface ReservasDao {
     // Todas las consultas para poder coger reservas de la base de datos
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertarReserva(Reservas reservas);
 
     @Update
@@ -24,13 +25,12 @@ public interface ReservasDao {
     @Delete
     void delete(Reservas reservas);
 
-    @Query("SELECT * FROM reservas ")
+    @Query("SELECT * FROM reservas")
     LiveData<List<Reservas>> todasReservas();
 
-
     //SE USA EN EL HOME PARA SABER EL DIA QUE TIENE RESERVADO EL CLIENTE
-    @Query("SELECT * FROM reservas WHERE idEmail =:miEmail ")
-    LiveData<List<Reservas>> reservasUsuario(String miEmail);
+    @Query("SELECT fechaEntrada FROM reservas WHERE idEmail =:miEmail  ORDER BY fechaEntrada ASC limit 1 ")
+    String reservasUsuario(String miEmail);
 
 
     @Query("SELECT * FROM reservas WHERE id =:miIdReserva ")

@@ -35,7 +35,7 @@ public class ClienteFragment extends Fragment {
         binding = FragmentClienteBinding.inflate(inflater, container, false);
         ClienteViewModel clienteViewModel = new ViewModelProvider(this).get(ClienteViewModel.class);
 
-        sharedPreferences=getActivity().getSharedPreferences("datosRegistro", Context.MODE_PRIVATE);
+        sharedPreferences=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
         emailCliente= sharedPreferences.getString("emailUsuario", "");
 
         clienteViewModel.cogerUsuario(emailCliente).observe(getActivity(), cu ->{

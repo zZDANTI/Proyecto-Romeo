@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 public class Habitaciones {
 
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name ="id")
     public
@@ -33,15 +33,15 @@ public class Habitaciones {
 
     //CONSTRUCTOR
 
-
-    public Habitaciones( String nombre, int numPersonas, String descrip, double precio, int imagen) {
+    public Habitaciones(int id, String nombre, int numPersonas, String descrip, double precio, int imagen) {
+        this.id = id;
         this.nombre = nombre;
         this.numPersonas = numPersonas;
         this.descrip = descrip;
         this.precio = precio;
         this.imagen = imagen;
-
     }
+
 
     //GETTERS Y SETTERS
 

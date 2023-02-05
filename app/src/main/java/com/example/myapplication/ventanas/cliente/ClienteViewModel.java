@@ -31,6 +31,11 @@ public class ClienteViewModel extends AndroidViewModel {
         return clientesRepositorio.getOneCliente(mId);
     }
 
+    public LiveData<Cliente> cogerUsuario(String email){
+        return clientesRepositorio.validarUsuario(email);
+    }
+
+
     public  void insert(Cliente objetoCliente){
         clientesRepositorio.insertarCliente(objetoCliente);
     }

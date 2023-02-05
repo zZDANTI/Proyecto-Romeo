@@ -1,7 +1,9 @@
 package com.example.myapplication.ventanas.register;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.myapplication.Entity.Cliente;
@@ -28,6 +31,9 @@ public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding binding;
 
+    SharedPreferences sharedPreferences;
+    CheckBox recordarContra;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -35,6 +41,16 @@ public class RegisterFragment extends Fragment {
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
 
         RegisterViewModel registerViewModel=new ViewModelProvider(this).get(RegisterViewModel.class);
+
+        sharedPreferences=getActivity().getSharedPreferences("datosRegistro", Context.MODE_PRIVATE);
+        recordarContra=(CheckBox) binding.checkRegister;
+        binding.emailRegistro.setText(sharedPreferences.getString("email",""));
+        recordarContra.setChecked(false);
+
+        if (!(sharedPreferences.getString("email","").length()==0)){
+            recordarContra.setChecked(true);
+        }
+
 
         binding.loginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +93,14 @@ public class RegisterFragment extends Fragment {
                                         @Override
                                         public void run() {
                                             Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                                            if (recordarContra.isChecked()){
+                                                editor.putString("email",binding.emailRegistro.getText().toString());
+                                            }else {
+                                                editor.putString("email","");
+                                            }
+                                            editor.putString("emailUsuario",binding.emailRegistro.getText().toString());
+                                            editor.commit();
                                             startActivity(new Intent(getActivity(), Menu.class));
                                             getActivity().onBackPressed();
                                         }

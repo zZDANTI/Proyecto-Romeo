@@ -125,6 +125,11 @@
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="-52dp">
 
+        <CheckBox
+            android:id="@+id/checkRegister"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:text="CheckBox" />
     </FrameLayout>
 
 

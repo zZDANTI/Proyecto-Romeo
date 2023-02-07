@@ -86,12 +86,13 @@
         android:layout_width="194dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
-        android:text="CheckBox"
+        android:text="Recordar credenciales"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/contrasenyaLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/contrasenyaLogin"
+        app:layout_constraintVertical_bias="0.0" />.
 
     <FrameLayout
         android:id="@+id/loginFragment"

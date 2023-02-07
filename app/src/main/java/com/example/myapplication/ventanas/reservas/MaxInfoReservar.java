@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.Entity.Reservas;
 import com.example.myapplication.R;
-import com.example.myapplication.ventanas.reservas.ReservasViewModel;
+import com.example.myapplication.databinding.FragmentAtencionBinding;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,6 +36,8 @@ public class MaxInfoReservar extends AppCompatActivity {
     String descripcion, nombreH;
     double precio;
     int numeroPersonas,imagen,dia, mes, anyo, id;
+    int idCliente=1;
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -60,14 +62,12 @@ public class MaxInfoReservar extends AppCompatActivity {
         imagen=intent.getIntExtra("imagenH",0);
         imagenHabitacion.setImageResource(imagen);
         nombreHabitacion.setText(nombreH);
-
-        suiteCamasPrecioHabitacion.setText("Nº Personas: "+numeroPersonas+" \nPrecio: "+precio+"€ por noche"+id);
-
+        suiteCamasPrecioHabitacion.setText("Nº Personas: "+numeroPersonas+" \nPrecio: "+precio+"€ por noche");
         descripcionHabitacion.setText(descripcion);
         reservasViewModel= new ViewModelProvider(this).get(ReservasViewModel.class);
     }
 
-    public void CaptarInicioReserva(View view){
+    public void InicioReserva(View view){
         final Calendar calendar= Calendar.getInstance();
         dia=calendar.get(Calendar.DAY_OF_MONTH);
         mes=calendar.get(Calendar.MONTH);
@@ -84,7 +84,7 @@ public class MaxInfoReservar extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    public void CaptarFinReserva(View view){
+    public void SalidaReserva(View view){
         final Calendar calendar=Calendar.getInstance();
         dia=calendar.get(Calendar.DAY_OF_MONTH);
         mes=calendar.get(Calendar.MONTH);
@@ -101,9 +101,9 @@ public class MaxInfoReservar extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    public void reservarHabitacion(View view){
+    public void Reservar(View view){
         if (fechaInicioReserva.getText().toString().equals("")||fechaFinReserva.getText().toString().equals("")){
-            Toast.makeText(this,"Los campos no pueden estar vacíos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Revise los campos, no pueden estar vacios", Toast.LENGTH_SHORT).show();
         }else {
             String fechaInicio=fechaInicioReserva.getText().toString();
             String fechaFin=fechaFinReserva.getText().toString();
@@ -119,7 +119,7 @@ public class MaxInfoReservar extends AppCompatActivity {
                 Date fechaFin1 = dateFormat.parse(fechaFin);
 
                 if(fechaInicio1.after(fechaFin1)||fechaInicio1.before(hoy1)){
-                    Toast.makeText(this,"Las fechas no concuerdan",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"No coinciden las fechas",Toast.LENGTH_SHORT).show();
                 }else {
                     reservasViewModel.todasReservas().observe(this,
                             mR->{
@@ -153,8 +153,15 @@ public class MaxInfoReservar extends AppCompatActivity {
                                     if (reserva){
                                         Toast.makeText(this,"Reserva hecha correctamente",Toast.LENGTH_SHORT).show();
                                         x++;
+
                                         reservasViewModel.insertarReserva(new Reservas(fechaInicio,fechaFin,id,sharedPreferences.getString("emailUsuario","")));
+
+                                        Toast.makeText(this," hnbdfgnn " + idCliente,Toast.LENGTH_SHORT).show();
+
+
+
                                         finish();
+
                                     }else {
                                         if (x==0){
                                             x++;

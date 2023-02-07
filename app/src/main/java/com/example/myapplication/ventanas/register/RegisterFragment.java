@@ -35,7 +35,6 @@ public class RegisterFragment extends Fragment {
     private FragmentRegisterBinding binding;
 
     SharedPreferences sharedPreferences;
-    CheckBox recordarContra;
 
 
     @Override
@@ -46,13 +45,6 @@ public class RegisterFragment extends Fragment {
         RegisterViewModel registerViewModel=new ViewModelProvider(this).get(RegisterViewModel.class);
 
         sharedPreferences=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
-        recordarContra=(CheckBox) binding.checkRegister;
-        binding.emailRegistro.setText(sharedPreferences.getString("email",""));
-        recordarContra.setChecked(false);
-
-        if (!(sharedPreferences.getString("email","").length()==0)){
-            recordarContra.setChecked(true);
-        }
 
         binding.loginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,11 +90,10 @@ public class RegisterFragment extends Fragment {
                                             public void run() {
                                                 Toast.makeText(getContext(), "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
                                                 SharedPreferences.Editor editor=sharedPreferences.edit();
-                                                if (recordarContra.isChecked()){
-                                                    editor.putString("email",binding.emailRegistro.getText().toString());
-                                                }else {
-                                                    editor.putString("email","");
-                                                }
+
+                                                editor.putString("email","");
+                                                editor.putString("contrasenya","");
+
                                                 editor.putString("emailUsuario",binding.emailRegistro.getText().toString());
                                                 editor.commit();
                                                 startActivity(new Intent(getActivity(), Menu.class));

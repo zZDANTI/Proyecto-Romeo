@@ -32,9 +32,8 @@ public interface ReservasDao {
     @Query("SELECT fechaEntrada FROM reservas WHERE idEmail =:miEmail  ORDER BY fechaEntrada ASC limit 1 ")
     String reservasUsuario(String miEmail);
 
-
-    @Query("SELECT * FROM reservas WHERE id =:miIdReserva ")
-    Reservas getMyReserva(String miIdReserva);
+    @Query("SELECT * FROM reservas WHERE idEmail =:miEmail  ORDER BY fechaEntrada ASC ")
+    LiveData<List<Reservas>> reservasTotalUsuarios(String miEmail);
 
 
     @Query("SELECT * FROM reservas WHERE idHabitacion =:idHabitacion ")

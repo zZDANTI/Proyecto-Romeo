@@ -33,11 +33,6 @@ public class AtencionFragment extends Fragment {
         binding = FragmentAtencionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-
-        final TextView textView = binding.mensajeCorreo;
-        atencionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
         binding.numeroHotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +41,8 @@ public class AtencionFragment extends Fragment {
                 startActivity(callIntent);
             }
         });
+
+
 
         return root;
     }

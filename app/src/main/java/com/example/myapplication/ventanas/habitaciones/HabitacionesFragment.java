@@ -10,12 +10,11 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.myapplication.Adapter;
+import com.example.myapplication.adaptadores.AdapterHabitaciones;
 import com.example.myapplication.Entity.Habitaciones;
 import com.example.myapplication.databinding.FragmentHabitacionesBinding;
 import com.example.myapplication.ventanas.reservas.MaxInfoReservar;
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.FragmentClienteBinding;
 
 import java.util.ArrayList;
 
@@ -52,8 +51,8 @@ public class HabitacionesFragment extends Fragment {
         });
         grid = v.findViewById(R.id.recyclerView);
 
-        Adapter adapter  = new Adapter(getContext(), habitacionList);
-        grid.setAdapter(adapter);
+        AdapterHabitaciones adapterHabitaciones = new AdapterHabitaciones(getContext(), habitacionList);
+        grid.setAdapter(adapterHabitaciones);
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

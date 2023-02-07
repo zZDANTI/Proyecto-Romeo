@@ -32,6 +32,11 @@ public class ReservasRepositorio {
         return reservasDao.reservasUsuario(idEmail);
     }
 
+    public LiveData<List<Reservas>> reservasTotalUsuarios(String idEmail) {
+        return reservasDao.reservasTotalUsuarios(idEmail);
+    }
+
+
     public LiveData<List<Reservas>>todasReservas() {
         return reservasDao.todasReservas();
     }
@@ -42,5 +47,6 @@ public class ReservasRepositorio {
                 ()-> reservasDao.insertarReserva(reservas)
         );
     }
+
 
 }

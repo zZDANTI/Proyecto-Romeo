@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.myapplication.Entity.Habitaciones;
 import com.example.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterHabitaciones extends BaseAdapter {
@@ -30,9 +31,17 @@ public class AdapterHabitaciones extends BaseAdapter {
         this.listaHabitaciones = listaHabitaciones;
     }
 
+    public AdapterHabitaciones(Context context) {
+        this.context = context;
+        this.inflater = (LayoutInflater.from(context));
+    }
+
     @Override
     public int getCount() {
-        return listaHabitaciones.size();
+        if (listaHabitaciones !=null){
+            return listaHabitaciones.size();
+        }
+        return 0;
     }
 
     @Override
@@ -43,6 +52,13 @@ public class AdapterHabitaciones extends BaseAdapter {
     @Override
     public long getItemId(int i) {
         return 0;
+    }
+
+    public void setHabitaciones(List<Habitaciones> arrayHabitacion){
+
+        listaHabitaciones = arrayHabitacion;
+        notifyDataSetChanged();
+
     }
 
     @Override
@@ -60,8 +76,6 @@ public class AdapterHabitaciones extends BaseAdapter {
         txtPrecio.setText(num + "€");
         num = String.valueOf(listaHabitaciones.get(i).getId());
         txtId.setText(num);
-
-
         return view;
 
     }

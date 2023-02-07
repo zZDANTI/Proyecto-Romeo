@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myapplication.databinding.FragmentClienteBinding;
 import com.example.myapplication.ventanas.reservasCliente.ClienteReservas;
 
 public class ClienteFragment extends Fragment {

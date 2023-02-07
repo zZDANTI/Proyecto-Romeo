@@ -107,13 +107,13 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/mensajeCorreo"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/botonAtencion"
         app:layout_constraintEnd_toEndOf="@+id/listadohome"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="@+id/listadohome" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botonAtencion"
         android:layout_width="128dp"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"

@@ -7,51 +7,57 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.myapplication.adaptadores.AdapterHabitaciones;
 import com.example.myapplication.Entity.Habitaciones;
+import com.example.myapplication.databinding.FragmentClienteBinding;
 import com.example.myapplication.databinding.FragmentHabitacionesBinding;
 import com.example.myapplication.ventanas.reservas.HacerReservas;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HabitacionesFragment extends Fragment {
 
 
-    View v;
+    //View v;
     GridView grid;
+    TextView textoPrueba;
+
+    HabitacionesViewModel habitacionesViewModel;
+    ArrayList<Habitaciones> habitacionList = new ArrayList<>();
 
     private FragmentHabitacionesBinding binding;
 
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        habitacionesViewModel = new ViewModelProvider(this).get(HabitacionesViewModel.class);
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         //Instancia del VIEW MODEL
-        HabitacionesViewModel habitacionesViewModel = new ViewModelProvider(this).get(HabitacionesViewModel.class);
-        v = inflater.inflate(R.layout.fragment_habitaciones, container, false);
-        
-        ArrayList<Habitaciones> habitacionList = new ArrayList<>();
-        habitacionesViewModel.listadoHabitaciones().observe(getViewLifecycleOwner(),lh ->{
+        //v = inflater.inflate(R.layout.fragment_habitaciones, container, false);
 
-            for (Habitaciones habitacion : lh){
+        AdapterHabitaciones adapterHabitaciones = new AdapterHabitaciones(getContext());
 
-                int id = habitacion.getId();
-                String nombreH=habitacion.getNombre();
-                int numPersonasH=habitacion.getNumPersonas();
-                String descripcionH=habitacion.getDescrip();
-                double precioH = habitacion.getPrecio();
-                int imagenH=habitacion.getImagen();
-                habitacionList.add(new Habitaciones(id,nombreH,numPersonasH,descripcionH,precioH,imagenH));
-            }
-        });
-        grid = v.findViewById(R.id.recyclerView);
+         binding = FragmentHabitacionesBinding.inflate(inflater, container, false);
+         habitacionesViewModel.listadoHabitaciones().observe(getViewLifecycleOwner(),adapterHabitaciones::setHabitaciones);
 
-        AdapterHabitaciones adapterHabitaciones = new AdapterHabitaciones(getContext(), habitacionList);
+
+        grid = binding.recyclerView;
+
         grid.setAdapter(adapterHabitaciones);
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +78,7 @@ public class HabitacionesFragment extends Fragment {
 
 
 
-        return v;
+        return binding.getRoot();
 
     }
 

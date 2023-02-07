@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.example.myapplication.Entity.Reservas;
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.FragmentAtencionBinding;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class MaxInfoReservar extends AppCompatActivity {
+public class HacerReservas extends AppCompatActivity {
 
     ImageView imagenHabitacion;
     TextView nombreHabitacion, suiteCamasPrecioHabitacion, descripcionHabitacion, fechaInicioReserva, fechaFinReserva;
@@ -155,10 +154,6 @@ public class MaxInfoReservar extends AppCompatActivity {
                                         x++;
 
                                         reservasViewModel.insertarReserva(new Reservas(fechaInicio,fechaFin,id,sharedPreferences.getString("emailUsuario","")));
-
-                                        Toast.makeText(this," hnbdfgnn " + idCliente,Toast.LENGTH_SHORT).show();
-
-
 
                                         finish();
 

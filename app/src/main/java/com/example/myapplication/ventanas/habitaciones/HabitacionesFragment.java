@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myapplication.adaptadores.AdapterHabitaciones;
 import com.example.myapplication.Entity.Habitaciones;
 import com.example.myapplication.databinding.FragmentHabitacionesBinding;
-import com.example.myapplication.ventanas.reservas.MaxInfoReservar;
+import com.example.myapplication.ventanas.reservas.HacerReservas;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class HabitacionesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                startActivity(new Intent(getContext(), MaxInfoReservar.class)
+                startActivity(new Intent(getContext(), HacerReservas.class)
                         .putExtra("id",habitacionList.get(i).getId())
                         .putExtra("nombreH",habitacionList.get(i).getNombre())
                         .putExtra("numeroP",habitacionList.get(i).getNumPersonas())
